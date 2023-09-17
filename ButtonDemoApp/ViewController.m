@@ -17,7 +17,7 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ActionTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActionTableViewCell"];
     self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.tableView.dataSource = self; 
 }
 
 #pragma mark - UITableView DataSource & Delegate
