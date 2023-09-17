@@ -6,11 +6,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ActionTableViewCell.h"
 
-@interface ViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+@interface ViewController : UIViewController<UITableViewDelegate,UITableViewDataSource>
 
-@property (weak, nonatomic) IBOutlet UICollectionView *buttonCollectionView;
 @property (strong, nonatomic) NSArray *buttonArray;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
