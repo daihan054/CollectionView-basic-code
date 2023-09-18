@@ -22,6 +22,14 @@
 
 - (IBAction)buttonTapped:(id)sender {
     NSLog(@"%@\n",self.titleLabel.text);
+    
+    UIColor *originalColor = self.actionButton.backgroundColor;
+
+    self.actionButton.backgroundColor = [UIColor grayColor];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.actionButton.backgroundColor = originalColor;
+    });
 }
 
 
