@@ -34,26 +34,66 @@
     });
 }
 
-// Existing methods and code
-- (float)calculateWidthForIndexPath:(NSIndexPath *)indexPath {
-    NSString *text = self.buttonArray[indexPath.item];
+- (CGFloat)calculateTotalHeight {
+    CGFloat totalHeight = 0;
     
-    ButtonCollectionViewCell *cell = (ButtonCollectionViewCell *)[self collectionView:self.buttonCollectionView cellForItemAtIndexPath:indexPath];
+    for (UIView *subview in self.contentView.subviews) {
+        if (!subview.isHidden && ![subview isKindOfClass:[UICollectionView class]]) {
+            totalHeight += subview.frame.size.height;
+        }
+    }
     
-    UIFont *labelFont = cell.titleLabel.font;
-    NSDictionary *attributes = @{NSFontAttributeName: labelFont};
+    // Calculate height of buttonCollectionView and add it to totalHeight
+    CGFloat buttonCollectionViewHeight = [self calculateHeightForButtonCollectionView];
+    totalHeight += buttonCollectionViewHeight;
     
-    CGSize maxSize = CGSizeMake(CGFLOAT_MAX, 50);
-    CGRect labelRect = [text boundingRectWithSize:maxSize
-                                          options:NSStringDrawingUsesLineFragmentOrigin
-                                       attributes:attributes
-                                          context:nil];
+    return totalHeight;
+}
+
+- (CGFloat)calculateHeightForButtonCollectionView {
+    // Given constraints
+    NSInteger fixedWidth = 320; // Replace with the actual fixed width of your buttonCollectionView
     
-    float textWidth = labelRect.size.width + 20;
-    float maxWidth = 200;
-    float finalWidth = MIN(textWidth, maxWidth);
+    // Dynamically get the spacing from UICollectionViewFlowLayout
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.buttonCollectionView.collectionViewLayout;
+    NSInteger horizontalGapBetweenCells = layout.minimumInteritemSpacing;
+    NSInteger verticalGapBetweenCells = layout.minimumLineSpacing;
     
-    return finalWidth;
+    // Array to hold widths and heights of each ButtonCollectionViewCell
+    NSMutableArray *cellDimensions = [NSMutableArray array];
+    
+    for (NSString *text in self.buttonArray) {
+        float cellWidth = [text widthForFont:[UIFont systemFontOfSize:17] maxWidth:300]; // Adjust the font and maxWidth as needed
+        float cellHeight = [text heightForFont:[UIFont systemFontOfSize:17] calculatedTextWidth:cellWidth]; // Adjust the font as needed
+        [cellDimensions addObject:@{@"width": @(cellWidth), @"height": @(cellHeight)}];
+    }
+    
+    NSInteger sum = 0;
+    CGFloat maxRowHeight = 0;
+    CGFloat totalHeight = 0;
+    
+    for (NSDictionary *dimension in cellDimensions) {
+        NSInteger newSum = sum;
+        CGFloat currentHeight = [dimension[@"height"] floatValue];
+        
+        if (newSum != 0) {
+            newSum += horizontalGapBetweenCells;
+        }
+        
+        newSum += [dimension[@"width"] integerValue];
+        
+        if (newSum <= fixedWidth) {
+            sum = newSum;
+            maxRowHeight = MAX(maxRowHeight, currentHeight);
+        } else {
+            totalHeight += maxRowHeight + verticalGapBetweenCells;
+            sum = [dimension[@"width"] integerValue];
+            maxRowHeight = currentHeight;
+        }
+    }
+    
+    totalHeight += maxRowHeight + verticalGapBetweenCells;
+    return totalHeight;
 }
 
 #pragma mark - UICollectionView DataSource & Delegate
@@ -70,8 +110,10 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    float finalWidth = [self calculateWidthForIndexPath:indexPath];
-    return CGSizeMake(finalWidth, 50);
+    NSString *text = self.buttonArray[indexPath.item];
+    float finalWidth = [text widthForFont:[UIFont systemFontOfSize:17] maxWidth:300];
+    float finalHeight = [text heightForFont:[UIFont systemFontOfSize:17] calculatedTextWidth:finalWidth];
+    return CGSizeMake(finalWidth, finalHeight);
 }
 
 @end

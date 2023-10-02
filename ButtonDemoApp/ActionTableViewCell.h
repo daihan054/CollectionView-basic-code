@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSString+ButtonDemoApp.h"
 
 @interface ActionTableViewCell : UITableViewCell<UICollectionViewDelegate,
 UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
@@ -14,4 +15,5 @@ UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (strong, nonatomic) NSArray *buttonArray;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
 
+- (CGFloat)calculateHeightForButtonCollectionView;
 @end
