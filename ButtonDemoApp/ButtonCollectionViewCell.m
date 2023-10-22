@@ -12,7 +12,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.actionButton.layer.cornerRadius = 12;
-    self.actionButton.layer.borderWidth = 2;
+    self.actionButton.layer.borderWidth = 1;
     self.actionButton.layer.borderColor = UIColor.blueColor.CGColor;
     self.actionButton.backgroundColor = UIColor.clearColor;
     self.actionButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;

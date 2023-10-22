@@ -13,7 +13,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.buttonArray = @[@"Go to text", @"Go to image node Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate", @"Go to question node Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate",@"Go to email node",@"Go to appointment node",@"Go to schedule node",@"Go to DB node",@"Go to programming node",@"Go to enjoy node",@"Go to dance node"];
+    self.buttonArray = @[@"Go to text", @"a", @"b",@"Go to email node",@"Go to appointment node",@"Go to schedule node",@"Go to DB node",@"Go to programming node",@"Go to enjoy node",@"Go to dance node"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ActionTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActionTableViewCell"];
     self.tableView.delegate = self;
@@ -35,12 +35,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ActionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActionTableViewCell"];
     cell.buttonArray = self.buttonArray;
-    [cell layoutIfNeeded];
-    CGFloat totalHeight = 0;
-    
-    totalHeight += [cell calculateHeightForButtonCollectionView];
-    
-    NSLog(@"_DDaihan Total height is %f", totalHeight);
-    return totalHeight;}
+    return cell.calculateTotalHeight;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 @end
