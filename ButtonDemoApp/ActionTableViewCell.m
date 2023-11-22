@@ -23,9 +23,8 @@
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.sectionInset = UIEdgeInsetsMake(10, 10, 0, 10);
     layout.minimumLineSpacing = 8;
-    layout.minimumInteritemSpacing = 3.5;
+    layout.minimumInteritemSpacing = 7;
     [self.buttonCollectionView setCollectionViewLayout:layout];
-    self.collectionViewWidthConstraint.constant = BUTTON_COLLECTIONVIEW_MAX_WIDTH;
 }
 
 - (CGFloat)calculateTotalHeight {

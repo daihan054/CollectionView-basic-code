@@ -13,7 +13,6 @@ UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *buttonCollectionView;
 @property (strong, nonatomic) NSArray *buttonArray;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewWidthConstraint;
 
 - (CGFloat)calculateTotalHeight;
 

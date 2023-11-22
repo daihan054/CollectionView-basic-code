@@ -17,11 +17,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="MgP-OC-CtX">
-                        <rect key="frame" x="0.0" y="0.0" width="280" height="63"/>
+                        <rect key="frame" x="0.0" y="0.0" width="346" height="78"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="280" id="6Cd-A5-Ckr"/>
-                        </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="num-SB-ghv">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -32,16 +29,17 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="MgP-OC-CtX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="3nq-MZ-Nyp"/>
+                    <constraint firstAttribute="trailing" secondItem="MgP-OC-CtX" secondAttribute="trailing" id="5mY-tr-BLN"/>
                     <constraint firstItem="MgP-OC-CtX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="KAN-Ao-mYR"/>
                     <constraint firstItem="MgP-OC-CtX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="WWW-ZO-UEf"/>
-                    <constraint firstAttribute="bottom" secondItem="MgP-OC-CtX" secondAttribute="bottom" constant="15" id="nA8-8k-hJH"/>
+                    <constraint firstAttribute="bottom" secondItem="MgP-OC-CtX" secondAttribute="bottom" id="nA8-8k-hJH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="buttonCollectionView" destination="MgP-OC-CtX" id="oGh-U7-iri"/>
-                <outlet property="collectionViewWidthConstraint" destination="6Cd-A5-Ckr" id="36j-uB-uFg"/>
             </connections>
             <point key="canvasLocation" x="150.72463768115944" y="77.008928571428569"/>
         </tableViewCell>
