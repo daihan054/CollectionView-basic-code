@@ -13,7 +13,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.buttonArray = @[@"Go to text", @"a", @"b",@"Go to email node",@"Go to appointment node",@"Go to schedule node",@"Go to DB node",@"Go to programming node",@"Go to enjoy node",@"Go to dance node"];
+    self.buttonArray = @[@"Feature 1", @"Feature 2", @"Feature 3",@"Feature 4",@"Feature 5",@"Feature 6",@"Feature 7",@"Feature 1", @"Feature 2", @"Feature 3",@"Feature 4",@"Feature 5",@"Feature 6",@"Feature 7"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ActionTableViewCell" bundle:nil] forCellReuseIdentifier:@"ActionTableViewCell"];
     self.tableView.delegate = self;
@@ -29,12 +29,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ActionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActionTableViewCell" forIndexPath:indexPath];
     cell.buttonArray = self.buttonArray;
+    [cell.buttonCollectionView reloadData];
+    [cell updateCollectionViewHeight];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     ActionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ActionTableViewCell"];
     cell.buttonArray = self.buttonArray;
+    [cell updateCollectionViewHeight];
     return cell.calculateTotalHeight;
 }
 

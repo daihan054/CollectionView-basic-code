@@ -7,14 +7,16 @@
 
 #import <UIKit/UIKit.h>
 #import "NSString+ButtonDemoApp.h"
+#import "CustomFlowLayout.h"
 
 @interface ActionTableViewCell : UITableViewCell<UICollectionViewDelegate,
 UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *buttonCollectionView;
 @property (strong, nonatomic) NSArray *buttonArray;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewWidthConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collectionViewHeightConstraint;
 
 - (CGFloat)calculateTotalHeight;
+- (void)updateCollectionViewHeight;
 
 @end
