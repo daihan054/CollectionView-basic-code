@@ -20,11 +20,10 @@
     self.buttonCollectionView.dataSource = self;
     [self.buttonCollectionView registerNib:[UINib nibWithNibName:@"ButtonCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ButtonCell"];
     
-    CustomFlowLayout *layout = [[CustomFlowLayout alloc] init];
-    layout.sectionInset = UIEdgeInsetsMake(10, 10, 0, 0);
-    layout.minimumLineSpacing = 10; // Adjust as needed
-    layout.minimumInteritemSpacing = 10; // Adjust as needed
-    [self.buttonCollectionView setCollectionViewLayout:layout animated:NO];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    layout.minimumLineSpacing = 8;
+    layout.minimumInteritemSpacing = 7;
+    [self.buttonCollectionView setCollectionViewLayout:layout];
 }
 
 - (CGFloat)calculateTotalHeight {
@@ -40,13 +39,6 @@
     totalHeight += buttonCollectionViewHeight;
     
     return totalHeight + 20;
-}
-
-- (void)updateCollectionViewHeight {
-    [self.buttonCollectionView layoutIfNeeded];
-    CGFloat collectionViewContentHeight = self.buttonCollectionView.collectionViewLayout.collectionViewContentSize.height;
-    self.collectionViewHeightConstraint.constant = collectionViewContentHeight;
-    [self layoutIfNeeded];
 }
 
 #pragma mark - UICollectionView DataSource & Delegate
