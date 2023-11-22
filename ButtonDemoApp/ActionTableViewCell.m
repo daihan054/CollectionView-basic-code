@@ -20,7 +20,7 @@
     self.buttonCollectionView.dataSource = self;
     [self.buttonCollectionView registerNib:[UINib nibWithNibName:@"ButtonCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"ButtonCell"];
     
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    CustomFlowLayout *layout = [[CustomFlowLayout alloc] init];
     layout.minimumLineSpacing = 8;
     layout.minimumInteritemSpacing = 7;
     [self.buttonCollectionView setCollectionViewLayout:layout];

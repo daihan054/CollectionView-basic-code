@@ -17,6 +17,7 @@
 		C75493F62AB3080A00214E56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C75493F52AB3080A00214E56 /* Assets.xcassets */; };
 		C75493F92AB3080A00214E56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C75493F72AB3080A00214E56 /* LaunchScreen.storyboard */; };
 		C75493FC2AB3080A00214E56 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C75493FB2AB3080A00214E56 /* main.m */; };
+		C77838532B0DDB9200B22BC6 /* CustomFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C77838522B0DDB9200B22BC6 /* CustomFlowLayout.m */; };
 		C7F7C6642AB6BA170077B36B /* ButtonCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F7C6632AB6BA170077B36B /* ButtonCollectionViewCell.m */; };
 		C7F7C6682AB6CE8E0077B36B /* ActionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F7C6662AB6CE8E0077B36B /* ActionTableViewCell.m */; };
 		C7F7C6692AB6CE8E0077B36B /* ActionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7F7C6672AB6CE8E0077B36B /* ActionTableViewCell.xib */; };
@@ -40,6 +41,8 @@
 		C75493FA2AB3080A00214E56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C75493FB2AB3080A00214E56 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C75494072AB30ACD00214E56 /* ButtonCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ButtonCollectionViewCell.h; sourceTree = "<group>"; };
+		C77838512B0DDB9200B22BC6 /* CustomFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomFlowLayout.h; sourceTree = "<group>"; };
+		C77838522B0DDB9200B22BC6 /* CustomFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomFlowLayout.m; sourceTree = "<group>"; };
 		C7F7C6632AB6BA170077B36B /* ButtonCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCollectionViewCell.m; sourceTree = "<group>"; };
 		C7F7C6652AB6CE8E0077B36B /* ActionTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActionTableViewCell.h; sourceTree = "<group>"; };
 		C7F7C6662AB6CE8E0077B36B /* ActionTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActionTableViewCell.m; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				C72AFF632AB6D5510098F11A /* ButtonCollectionViewCell.xib */,
 				C752A99E2ACAAD79002134CF /* NSString+ButtonDemoApp.h */,
 				C752A99F2ACAAD79002134CF /* NSString+ButtonDemoApp.m */,
+				C77838512B0DDB9200B22BC6 /* CustomFlowLayout.h */,
+				C77838522B0DDB9200B22BC6 /* CustomFlowLayout.m */,
 			);
 			path = ButtonDemoApp;
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 				C752A9A02ACAAD79002134CF /* NSString+ButtonDemoApp.m in Sources */,
 				C75493FC2AB3080A00214E56 /* main.m in Sources */,
 				C7F7C6682AB6CE8E0077B36B /* ActionTableViewCell.m in Sources */,
+				C77838532B0DDB9200B22BC6 /* CustomFlowLayout.m in Sources */,
 				C75493F42AB3080700214E56 /* ButtonDemoApp.xcdatamodeld in Sources */,
 				C7F7C6642AB6BA170077B36B /* ButtonCollectionViewCell.m in Sources */,
 				C75493EE2AB3080700214E56 /* ViewController.m in Sources */,
